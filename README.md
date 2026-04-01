@@ -1,6 +1,11 @@
 # Enseal
 
-Enseal is a high-performance CLI tool designed to securely encrypt .env files, ensuring that sensitive environment variables are protected from unauthorized access. Built with Rust, Enseal offers a seamless and efficient way to safeguard your configuration data while maintaining ease of use for developers.
+**Enseal** is a high-performance, security-focused CLI tool designed to protect your `.env` files using industry-standard encryption. Built with Rust, it allows you to safely commit your environment configurations to version control without exposing sensitive secrets.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Rust](https://img.shields.io/badge/rust-%23E32F26.svg?style=flat&logo=rust&logoColor=white)
+
+---
 
 ## Features
 
@@ -9,6 +14,13 @@ Enseal is a high-performance CLI tool designed to securely encrypt .env files, e
 - **Cross-Platform**: Compatible with Windows, macOS, and Linux.
 - **Fast Performance**: Leveraging Rust's performance capabilities to ensure quick encryption and decryption processes.
 - **Open Source**: Available on GitHub for contributions and improvements.
+
+## 🛠️ Tech Stack
+
+- **Language**: Rust
+- **Encryption**: `aes-gcm`
+- **Key Derivation**: `argon2`
+- **TUI**: `inquire`, `indicatif`, `colored`
 
 ## License
 
