@@ -2,5 +2,29 @@
 name = "Enseal"
 version = "0.1.0"
 edition = "2024"
+authors = ["Kavinda Rathnayake <kavindarathnayake100@gmail.com>"]
+description = "A high-performance CLI tool to securely encrypt .env files."
+readme = "README.md"
+repository = "https://github.com/kavinda-100/Alloy"
+homepage = "https://github.com/kavinda-100/Alloy"
+license = "MIT"
+keywords = ["cli", "developer-tools", "env-file", "encryption", "rust"]
+categories = ["command-line-utilities", "development-tools"]
 
 [dependencies]
+# UI & Interaction (The core of your CLI)
+inquire = "0.9.4"
+colored = "3.1.1"
+indicatif = "0.18.4"
+anyhow = "1.0"
+
+# Cryptography & Security
+aes-gcm = "0.10.3"      # Authenticated Encryption (AES-256-GCM)
+argon2 = "0.5.3"        # Key Derivation (Password to Secret Key)
+rand = "0.8.5"          # Generating random Salts and Nonces
+zeroize = { version = "1.7", features = ["derive"] } # Wiping memory
+
+# File System & Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+walkdir = "2.5"
