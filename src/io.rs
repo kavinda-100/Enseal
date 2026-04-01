@@ -4,10 +4,9 @@ use inquire::{Password, PasswordDisplayMode, Select};
 use std::fs;
 use std::path::Path;
 
-#[allow(dead_code)]
 pub const ENCRYPTED_FILE_NAME: &str = ".envs.enc";
-#[allow(dead_code)]
 pub const DECRYPTED_FILE_NAME: &str = ".env";
+pub const MIN_PASSWORD_LEN: usize = 4;
 
 #[derive(Debug, Clone)]
 pub enum Action {
@@ -42,6 +41,13 @@ pub fn get_password(prompt: &str) -> Result<String> {
 
     if password.is_empty() {
         return Err(anyhow::anyhow!("Password cannot be empty"));
+    }
+
+    if password.len() < MIN_PASSWORD_LEN {
+        return Err(anyhow::anyhow!(
+            "Password must be at least {} characters long",
+            MIN_PASSWORD_LEN
+        ));
     }
 
     Ok(password)
