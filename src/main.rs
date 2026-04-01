@@ -13,14 +13,15 @@ fn main() -> Result<()> {
     // Display the banner
     print_banner();
 
-    loop {
-        match io::prompt_action()? {
-            Action::Encrypt => handle_encryption()?,
-            Action::Decrypt => handle_decryption()?,
-            Action::Exit => {
-                println!("{}", "Stay secure! Goodbye.".green());
-                break;
-            }
+    let action: Action = io::prompt_action()?;
+
+    match action {
+        Action::Encrypt => handle_encryption()?,
+        Action::Decrypt => handle_decryption()?,
+        Action::Exit => {
+            println!("{}", "Stay secure! Goodbye.".green());
+            // Exit the program
+            std::process::exit(0);
         }
     }
 
