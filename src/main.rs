@@ -45,12 +45,23 @@ fn handle_encryption() -> Result<()> {
     // 4. Save to .envs.enc
     io::save_file(ENCRYPTED_FILE_NAME, &encrypted_data)?;
 
+    println!("\n{}", "-----------------------------".green());
     pb.finish_with_message(format!(
         "{} Successfully encrypted to {}",
         "✔".green(),
         ENCRYPTED_FILE_NAME.bold()
     ));
     println!("{}", "Remember: Keep your master password safe. If you lose it, you lose access to these secrets.".yellow());
+    println!(
+        "{}",
+        "Tip: Use a password manager to store your master password securely.".yellow()
+    );
+    println!(
+        "Make sure the {} file is not listed in the {} if you want to push to a public repository!",
+        ENCRYPTED_FILE_NAME.yellow(),
+        ".gitignore".yellow()
+    );
+    println!("{}", "-----------------------------\n".green());
     Ok(())
 }
 
